@@ -361,7 +361,7 @@ h2 {
   cursor: pointer;
   z-index: 1000;
   transition: transform 0.2s ease, background 0.3s ease;
-  margin-top: 5%;
+
 }
 
 /* Tap feedback */
@@ -535,4 +535,3 @@ h2 {
     font-size: 0.8rem;
   }
 }
-
