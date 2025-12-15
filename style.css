@@ -11,8 +11,14 @@
     url("First.png");
 
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
   background-position: center;
+   background: #0b0b0b;
+  color: #eaeaea;
+  font-family: 'Libre Baskerville', serif;
+  line-height: 1.8;
+   background:  linear-gradient(rgba(4, 4, 4, 0.85), rgba(0,0,0,0.95)),
+    url("First.png");
 }
 
     .chapter-nav {
@@ -66,6 +72,15 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+   height: 100vh;
+      background: url('First.png');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
 }
 
 
@@ -75,6 +90,10 @@
       letter-spacing: 3px;
       color: #f5ebd5;
       animation: fadeDown 2s ease;
+       font-family: 'Playfair Display', serif;
+      font-size: 3.8rem;
+      letter-spacing: 3px;
+      animation: fadeDown 2s ease;
     }
 
     .hero p {
@@ -82,6 +101,10 @@
       font-size: 3rem;
       color: #c62828;
       font: bolder;
+      animation: fadeUp 2.5s ease;
+       margin-top: 15px;
+      font-size: 2rem;
+      color: #c62828;
       animation: fadeUp 2.5s ease;
 
     }
@@ -132,42 +155,14 @@ text-align: center;
   box-sizing: border-box;
 }
 
-body {
-  background: #0b0b0b;
-  color: #eaeaea;
-  font-family: 'Libre Baskerville', serif;
-  line-height: 1.8;
-   background:  linear-gradient(rgba(4, 4, 4, 0.85), rgba(0,0,0,0.95)),
-    url("First.png");
-              
-}
 
-/* HERO */
- .hero {
-      height: 100vh;
-      background: url('First.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-    }
 
-    .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3.8rem;
-      letter-spacing: 3px;
-      animation: fadeDown 2s ease;
-    }
 
-    .hero p {
-      margin-top: 15px;
-      font-size: 2rem;
-      color: #c62828;
-      animation: fadeUp 2.5s ease;
-    }
+
+
+  
+
+   
 
 .hero button {
   margin-top: 35px;
@@ -387,5 +382,77 @@ h2 {
     text-align: center;
     background: #000;
     color: #c62828;
+  }
+}
+
+/* ===============================
+   MOBILE RESPONSIVE FIXES
+================================ */
+@media (max-width: 768px) {
+
+  body {
+    background-attachment: scroll;
+  }
+
+  .chapter-nav {
+    top: auto;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    display: flex;
+    gap: 6px;
+  }
+
+  .chapter-nav button {
+    font-size: 0.7rem;
+    padding: 6px 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+  }
+
+  .hero button {
+    padding: 10px 22px;
+    font-size: 0.85rem;
+  }
+
+  section {
+    padding: 50px 15px;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .chapter-box {
+    padding: 30px 18px;
+    margin: 0 auto;
+  }
+
+  .dialogue p {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  .characters {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .audio-btn,
+  .theme-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
   }
 }
