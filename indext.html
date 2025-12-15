@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Anonymous Benefactor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="chapter-nav">
+  <button onclick="goToChapter('chapter-one')">Chapter 1</button>
+  <button onclick="goToChapter('chapter-two')">Chapter 2</button>
+  <button onclick="goToChapter('chapter-three')">Chapter 3</button>
+  <button class="theme-btn" onclick="toggleTheme()">🌙</button>
+
+</nav>
+
+<audio id="bg-audio" loop>
+  <source src="ambient.mp3" type="audio/mpeg">
+</audio>
+
+<button class="audio-btn" onclick="toggleAudio()">🔊 Sound</button>
+  <!-- HERO -->
+  <section class="hero">
+    <h1>The Anonymous Benefactor</h1>
+    <p>You’re invited. To die.</p>
+    <button onclick="scrollToChapter()">Begin Reading</button>
+  </section>
+
+   <section class="hook">
+    <h2>You Are Invited</h2>
+    <p>
+      Five strangers are summoned to a gothic estate.<br>
+      A billionaire is declared dead.<br>
+      The will is a threat. The inheritance is a trap.<br>
+      Only one of them knows the truth.
+    </p>
+  </section>
+  <!-- CHARACTERS -->
+<section id="characters">
+  <h2>The Heirs</h2>
+
+  <div class="characters">
+    <div class="character trevor">
+      <h3>Trevor Vance</h3>
+      <p>A ruthless business mogul obsessed with control and legacy.</p>
+    </div>
+
+    <div class="character anya">
+      <h3>Anya Bellweather</h3>
+      <p>A professor driven by logic, hiding emotional fractures.</p>
+    </div>
+
+    <div class="character chloe">
+      <h3>Chloe Finch</h3>
+      <p>An ordinary barista pulled into extraordinary darkness.</p>
+    </div>
+
+    <div class="character marcus">
+      <h3>Marcus Cross</h3>
+      <p>A journalist chasing truth, haunted by abandonment.</p>
+    </div>
+
+    <div class="character sara">
+      <h3>Sara Bellweather</h3>
+      <p>A quiet observer who understands chaos better than anyone.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CHAPTER ONE -->
+ <section id="chapter-one">
+  <div class="chapter-box">
+
+    <h2>The Summons</h2>
+
+    <div class="first">
+      <p>Day 1, The drawing room. The five heirs have just heard the bizarre
+         terms of the will and the threatening first recording from the 
+         "deceased," Silas Bellweather. The atmosphere is hostile and terrified.
+      </p>
+    </div><br>
+
+    <div class="dialogue">
+
+      <div class="line trevor">
+        <span class="name">Trevor</span>
+        <p>(Pacing aggressively, running a hand through his expensive hair)</p><br>
+        <p>
+          This is insane. An explicit threat? A scavenger hunt?
+          I have a multi-billion-dollar acquisition closing Friday.
+          I will not be trapped in a gothic horror show with strangers.
+        </p>
+      </div>
+
+      <div class="line anya">
+        <span class="name">Anya</span>
+        <p>(Calmly folding her hands)</p><br>
+        <p>
+        The threat is serious, Mr. Vance. Bellweather clearly suggests 
+        one of us had motive enough to kill him. We should be focused on finding the 
+        connection. Where did you know Silas Bellweather from?
+        </p>
+      </div>
+
+      <div class="line trevor">
+        <span class="name">Trevor</span>
+        <p>(Scoffs)</p><br>
+        <p>
+        I didn't. I received a certified letter from some shell 
+        corporation naming me an heir. I assumed it was a standard legal fight. 
+        Clearly, I assumed wrong.
+        </p>
+      </div>
+
+      <div class="line chloe">
+        <span class="name">Chloe</span>
+        <p>(Whispering, intimidated by the grandeur of the room)</p><br>
+        <p>
+         I work at a coffee shop. In Portland. I spilled coffee on the wrong lawyer, 
+         maybe? That's my only connection to high finance.
+        </p>
+      </div>
+
+      <div class="line marcus">
+        <span class="name">Marcus</span>
+        <p>(Scribbling furiously in a small notebook)</p><br>
+        <p>
+       Vellum said Bellweather died two months ago.
+        If one of us killed him, the body is already cold.
+         What we need to understand is why he left this maze.
+          It's not about the money, it's about making a spectacle.
+        And why five strangers?
+        </p>
+      </div>
+
+      <div class="line sara">
+        <span class="name">Sara</span>
+        <p>(Staring out the window at the storm, her voice low and even)</p><br>
+        <p>
+       He needs us here. All five of us.
+        If it were just about money, he would have left it to a foundation. 
+        He set this up so we would tear the place, and each other, apart. 
+        He built his fortune on chaos; he's distributing it the same way.
+        </p>
+      </div>
+       <div class="line trevor">
+        <span class="name">Trevor</span>
+       
+        <p>
+         That's ridiculous, Sara. He built it on shrewd, cold business.
+          You sound like a conspiracy theorist.
+        </p>
+      </div>
+      <div class="line marcus">
+        <span class="name">Marcus</span>
+        <p>(Looking up sharply at Sara)</p><br>
+        <p>
+      Maybe she's right. If we're all pawns, we need to figure out the board.
+       Before one of us becomes the next victim in his little game.
+        </p>
+      </div>
+      
+      <button class="next-btn" onclick="goToChapter('chapter-two')">
+  Next Chapter →
+</button>
+
+    </div>
+  </section>
+  <!-- CHAPTER TWO -->
+<section id="chapter-two">
+   <div class="chapter-box">
+  <h2>The Revelation of the Siblings </h2>
+  <div class="first"><p>Day 3. Trevor has just collapsed (the "poisoning").
+     While searching his belongings for a clue,
+      the remaining four discover identical birth certificates and
+       letters linking them to Silas Bellweather.</p><br></div>
+
+  <div class="dialogue">
+
+    <div class="line anya">
+      <span class="name">Anya</span>
+      <p>[Anya holds up five separate,
+         sealed envelopes found hidden beneath the lining of Trevor's 
+         expensive briefcase. They each contain old birth certificates.]</p><br>
+         <p>(Voice shaking, reading the documents)</p><br>
+      <p>
+       Marcus, yours says... mother: Diane Cross.
+        Father: Anonymous. Born: New York, 1985. Chloe, yours... 
+        mother: Laura Finch. Father: Anonymous. Born: Los Angeles, 1986. Mine...
+      </p><br>
+      <p>[She trails off, placing her own document down. Marcus snatches his.]</p>
+    </div>
+
+    <div class="line marcus">
+      <span class="name">Marcus</span>
+      <p>(Reading rapidly, his face draining of color) </p><br>
+      <p>
+       The dates. They're all within three years of each other. 
+       Five different mothers. Five different cities. All "Anonymous" fathers.
+        But look at the signature on the back of Chloe's
+         form-a notary stamp from Bellweather's old corporation.
+      </p>
+    </div>
+
+    <div class="line chloe">
+      <span class="name">Chloe</span>
+      <p>(Tears welling up)</p><br>
+      <p>
+      He didn't know us. He didn't want us. He just... collected us.
+      </p>
+    </div>
+
+    <div class="line anya">
+      <span class="name">Anya</span>
+      <p>(Her scientific detachment crumbling)</p><br>
+      <p>
+      This wasn't a competition for money. 
+      This was a convergence. He brought his estranged children together for one final,
+       vicious act. We aren't strangers, Marcus. We are siblings.
+      </p>
+    </div>
+
+    <div class="line sara">
+      <span class="name">Sara</span>
+      <p>(A cold whisper, not looking at anyone)</p><br>
+      <p>
+      Siblings who hate each other. Siblings who, thanks to him,
+       now suspect one of us tried to kill the other. It's perfect.
+        It strips away every ounce of humanity and forces us to be what he always was: ruthless.
+      </p>
+    </div>
+
+    <div class="line marcus">
+      <span class="name">Marcus</span>
+      <p>(Clutching his own birth certificate, the journalist façade gone)</p><br>
+      <p>
+      He wasn't testing us for an inheritance. He was testing us to see 
+      who was enough like him to survive this kind of cruelty.
+       He created a murder mystery out of our abandonment.
+      </p>
+    </div>
+
+    <div class="line chloe">
+      <span class="name">Chloe</span>
+      <p>(Looking around the richly decorated, yet cold, room)</p><br>
+      <p>
+        But who killed him? If we're his family, why would we murder 
+        him before the will? We had no idea he was our father until now!
+      </p>
+    </div>
+
+    <div class="line anya">
+      <span class="name">Anya</span>
+      <p>(Looking pointedly at Sara) </p><br>
+      <p>
+       Unless one of us did know. Unless one of us found the truth years ago, 
+       and came here not for the money, but for the end.
+      </p>
+    </div>
+<button class="next-btn" onclick="goToChapter('chapter-three')">
+  Final Chapter →
+</button>
+  </div>
+  </div>
+</section>
+<!-- CHAPTER THREE -->
+<section id="chapter-three">
+    <div class="chapter-box">
+
+  <h2>The Confrontation </h2>
+
+  <div class="dialogue">
+
+    <div class="line silas">
+ <div class="first"><p>Day 4, The Underground Archive.
+   Silas Bellweather has just revealed he is alive and that he set up the game.
+    Sara has been exposed as the true killer of the real executor, Mr. Vellum.</p><br></div>
+     <p>[Silas's holographic image flickered, 
+    his smug expression replaced by a flash of disbelief as Anya
+     and Chloe rejected his game. Sara stood rigid by the control panel, 
+     ready to claim the fortune.]</p><br>
+      <span class="name">Silas</span>
+  
+     <p>(A sharp, disbelieving laugh echoing through the room)</p><br>
+      <p>
+       You-you pathetic fools! You actually choose justice over power?
+        Anya, you could fund your own university! Marcus, you could buy the network 
+        that fired you! You reject the only path to true authority!
+      </p>
+    </div>
+
+    <div class="line marcus">
+      <span class="name">Marcus</span>
+      <p>(Stepping forward, his voice steady with conviction)</p><br>
+      <p>
+      Your authority is a lie, Silas. You faked your death to orchestrate
+       a psychological torture session. You are nothing but a coward.
+        And we are done playing your game.
+      </p>
+    </div>
+
+
+    <div class="line sara">
+      <span class="name">Sara</span>
+      <p>(Eyes blazing at Marcus)</p><br>
+      <p>
+      Don't you understand? If he walks away from this , 
+      he wins! The only way to silence him forever is to take his entire empire
+     and collapse it! I killed the executor to keep this door open!
+      </p>
+    </div>
+
+    <div class="line chloe">
+      <span class="name">Chloe</span>
+      <p>(Moving swiftly, hacking into a system port) </p><br>
+      <p>
+       And we're closing it. You wanted a public spectacle, Silas? Fine.
+      </p><br>
+      <p>[Chloe frantically taps keys, bypassing the inheritance code,
+         and diverting the encrypted files containing Silas's crimes.]</p><br>
+         <p>(To Silas)</p><br>
+         <p>We're not taking your money, Father. We're taking your freedom. 
+          Every piece of data-the fraud, the shell companies, the real murder 
+          of Vellum-it's all being pushed to the SEC and the authorities right now.</p>
+    </div>
+
+    <div class="line silas">
+      <span class="name">Silas</span>
+      <p>(The holographic image begins to pixelate, his voice rising in panic)</p><br>
+      <p>
+      No! Stop! The controls-Sara! Push the ALERT button! Take the money!
+      </p>
+    </div>
+
+  <div class="line sara">
+      <span class="name">Sara</span>
+      <p>(Suddenly calm, looking at the panel, then at Marcus)</p><br>
+      <p>
+   It won't matter. He'll escape the country. The money is traceable.
+      </p><br>
+      <p>[Sara steps back from the panel. She locks eyes with Marcus and Anya, 
+        a moment of shared, dark understanding passing between the true siblings.]</p><br>
+        <p>(To Silas, a final, chilling declaration)</p><br>
+        <p>You wanted an heir ruthless enough to survive. 
+          I survived. But I didn't survive to be like you. I survived to destroy you.</p><br>
+    </div>
+<p>A heavy security door slams shut in the archive. External sirens wail loudly, 
+  closer now, echoing off the underground walls. The holographic image of Silas 
+  Bellweather shrieked a final, garbled curse before dissolving into flickering pixels.</p><br>
+    <div class="line anya">
+      <span class="name">Anya</span>
+      <p>(Leaning against the server rack, exhausted but resolute)</p><br>
+      <p>
+      It's done. We didn't get the inheritance.
+      </p>
+    </div>
+
+  
+
+    <div class="line marcus">
+      <span class="name">Marcus</span>
+      <p>(Looking at his two sisters, then at the empty space where his father stood) </p><br>
+      <p>
+      We got something better. We got the truth. 
+      And we got each other. Now, let's go explain this to the police.
+      </p>
+    </div>
+
+
+
+ </div>
+
+  <p style="margin-top:60px; color:#999;">
+    The fortune was never claimed.<br>
+    The truth was.
+  </p>
+
+</section>
+
+<div class="rotate-warning">
+  Rotate your phone for the best experience 📖
+</div>
+
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
