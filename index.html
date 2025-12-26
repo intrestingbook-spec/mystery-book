@@ -1,15 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>The Anonymous Benefactor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A dark psychological thriller where five heirs are trapped in a deadly inheritance game. Read The Anonymous Benefactor, a gothic mystery web novel.">
+<meta name="keywords" content="mystery web novel, gothic thriller, inheritance mystery, psychological fiction">
+<meta name="author" content="Intresting Book">
+<!-- Primary SEO -->
+<meta name="keywords" content="mystery web novel, gothic thriller, inheritance mystery, psychological fiction, dark family drama">
+<meta name="author" content="Intresting Book">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Anonymous Benefactor – A Gothic Mystery Web Novel">
+<meta property="og:description" content="Five heirs. One dead billionaire. A will designed as a trap. Read the full psychological mystery online.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://intrestingbook-spec.github.io/mystery-book/">
+<meta property="og:image" content="https://intrestingbook-spec.github.io/mystery-book/First.webp">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Anonymous Benefactor">
+<meta name="twitter:description" content="A dark psychological inheritance mystery web novel.">
+<meta name="twitter:image" content="https://intrestingbook-spec.github.io/mystery-book/First.webp">
+<link rel="canonical" href="https://intrestingbook-spec.github.io/mystery-book/">
+
+
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Libre+Baskerville&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": "The Anonymous Benefactor",
+  "author": {
+    "@type": "Person",
+    "name": "Intresting Book"
+  },
+ "genre": ["Mystery", "Psychological Thriller", "Gothic Fiction"],
+  "inLanguage": "en",
+  "url": "https://intrestingbook-spec.github.io/mystery-book/",
+  "image": "https://intrestingbook-spec.github.io/mystery-book/First.webp",
+  "isAccessibleForFree": true
+}
+"publisher": {
+  "@type": "Organization",
+  "name": "Intresting Book"
+}
+
+
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HWQ9W6XKCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HWQ9W6XKCP');
+</script>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
 </head>
 
 <body>
@@ -22,15 +83,15 @@
 
 </nav>
 
-
+<main>
 
   <!-- HERO -->
   <section class="hero">
     <h1>The Anonymous Benefactor</h1>
     <p>You’re invited. To die.</p>
-    <button onclick="scrollToChapter()">Begin Reading</button>
+<button type="button" onclick="scrollToChapter()">Begin Reading</button>
   </section>
-
+<!-- HOOK -->
    <section class="hook">
     <h2>You Are Invited</h2>
     <p>
@@ -166,9 +227,13 @@
         </p>
       </div>
       
-      <button class="next-btn" onclick="goToChapter('chapter-two')">
+     <button class="next-btn"
+        type="button"
+        aria-label="Go to Chapter Two"
+        onclick="goToChapter('chapter-two')">
   Next Chapter →
 </button>
+
 
     </div>
   </section>
@@ -263,9 +328,13 @@
        and came here not for the money, but for the end.
       </p>
     </div>
-<button class="next-btn" onclick="goToChapter('chapter-three')">
+<button class="next-btn"
+        type="button"
+        aria-label="Go to Final Chapter"
+        onclick="goToChapter('chapter-three')">
   Final Chapter →
 </button>
+
   </div>
   </div>
 </section>
@@ -377,11 +446,51 @@
  </div>
 
   <p style="margin-top:60px; color:#999;">
-    The fortune was never claimed.<br>
-    The truth was.
-  </p>
+  The fortune was never claimed.<br>
+  The truth was.
+</p>
+
+<p style="margin-top:40px; font-style:italic;">
+  If you enjoyed this story, share it or bookmark for future chapters.
+</p>
+
+<section id="reviews">
+  <div class="chapter-box">
+
+    <h2>Readers’ Reviews</h2>
+
+    <div class="rating-summary">
+      ⭐ <span id="avgRating">0.0</span> / 5  
+      <p><span id="totalReviews">0</span> Reviews</p>
+    </div>
+
+    <form id="reviewForm">
+      <input id="username" placeholder="Your name" required>
+      <textarea id="comment" placeholder="Your thoughts…" required></textarea>
+
+      <select id="rating" required>
+        <option value="">Rate</option>
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+
+      <button class="next-btn" type="submit">Post Review</button>
+    </form>
+
+    <div id="reviewsList"></div>
+
+  </div>
+</section>
+
+
+</main>
 
 </section>
+
+
 
 <div class="rotate-warning">
   Rotate your phone for the best experience 📖
