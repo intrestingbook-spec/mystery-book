@@ -1,6 +1,5 @@
-  function scrollToStory() {
-      document.getElementById('story').scrollIntoView({ behavior: 'smooth' });
-    }
+
+  
 function goToChapter(id) {
   document.getElementById(id)
     .scrollIntoView({ behavior: "smooth" });
@@ -14,58 +13,105 @@ function goToChapter(id) {
 const lines = document.querySelectorAll(".line");
 const characters = document.querySelectorAll(".character");
 
-lines.forEach((line, index) => {
-  setTimeout(() => {
-    line.style.transition = "0.8s ease";
-    line.style.opacity = 1;
-    line.style.transform = "translateY(0)";
-  }, index * 400);
-  
-  
-});
+
 const characterCards = document.querySelectorAll(".character");
 
 window.addEventListener("scroll", () => {
   const trigger = window.innerHeight * 0.85;
 
-  characterCards.forEach(card => {
-    if (card.getBoundingClientRect().top < trigger) {
-      card.classList.add("show");
-    }
-  });
-});
-const audio = document.getElementById("bg-audio");
-let playing = false;
-
-function toggleAudio() {
-  if (!playing) {
-    audio.play();
-  } else {
-    audio.pause();
-  }
-  playing = !playing;
-}
-function toggleTheme() {
-  document.body.classList.toggle("light");
-}
-const elements = document.querySelectorAll(".line, .character");
-
-window.addEventListener("scroll", () => {
-  const trigger = window.innerHeight * 0.85;
-
-  elements.forEach(el => {
+  document.querySelectorAll(".line, .character").forEach(el => {
     if (el.getBoundingClientRect().top < trigger) {
       el.style.opacity = 1;
       el.style.transform = "translateY(0)";
       el.style.transition = "0.8s ease";
     }
   });
-});
 
-window.addEventListener("scroll", () => {
   localStorage.setItem("scrollPos", window.scrollY);
 });
-
-window.onload = () => {
-  window.scrollTo(0, localStorage.getItem("scrollPos") || 0);
+// 🔥 Firebase Config (REPLACE with your keys)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID"
 };
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
+const reviewsList = document.getElementById("reviewsList");
+const avgRatingEl = document.getElementById("avgRating");
+const totalReviewsEl = document.getElementById("totalReviews");
+const reviewForm = document.getElementById("reviewForm");
+
+let ratings = [];
+
+db.collection("reviews").orderBy("created", "desc")
+  .onSnapshot(snapshot => {
+    reviewsList.innerHTML = "";
+    ratings = [];
+
+    snapshot.forEach(doc => {
+      const r = doc.data();
+      ratings.push(r.rating);
+
+      const div = document.createElement("div");
+      div.className = "review";
+
+      div.innerHTML = `
+        <div class="review-header">
+          <div class="avatar">${r.name[0].toUpperCase()}</div>
+          <strong>${r.name}</strong>
+        </div>
+        <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</div>
+        <p>${r.comment}</p>
+        <div class="review-actions">
+          <button onclick="likeReview('${doc.id}')">❤️ ${r.likes || 0}</button>
+          <button onclick="deleteReview('${doc.id}', '${r.name}')">🗑</button>
+        </div>
+      `;
+
+      reviewsList.appendChild(div);
+    });
+
+    const avg = ratings.length
+      ? (ratings.reduce((a,b)=>a+b)/ratings.length).toFixed(1)
+      : "0.0";
+
+    avgRatingEl.textContent = avg;
+    totalReviewsEl.textContent = ratings.length;
+  });
+
+reviewForm.addEventListener("submit", e => {
+  e.preventDefault();
+
+  const name = username.value.trim();
+  const comment = comment.value.trim();
+  const rating = Number(rating.value);
+
+  if (!name || !comment || !rating) return;
+
+  db.collection("reviews").add({
+    name,
+    comment,
+    rating,
+    likes: 0,
+    created: firebase.firestore.FieldValue.serverTimestamp()
+  });
+
+  reviewForm.reset();
+});
+
+function likeReview(id) {
+  const ref = db.collection("reviews").doc(id);
+  ref.update({ likes: firebase.firestore.FieldValue.increment(1) });
+}
+
+function deleteReview(id, name) {
+  const user = prompt("Enter your name to delete:");
+  if (user === name) {
+    db.collection("reviews").doc(id).delete();
+  } else {
+    alert("You can delete only your own review.");
+  }
+}
