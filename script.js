@@ -29,7 +29,7 @@ window.addEventListener("scroll", () => {
 
   localStorage.setItem("scrollPos", window.scrollY);
 });
-// 🔥 Firebase Config (REPLACE with your keys)
+// Firebase Init
 const firebaseConfig = {
   apiKey: "AIzaSyXXXX",
   authDomain: "yourproject.firebaseapp.com",
@@ -44,12 +44,12 @@ const avgRatingEl = document.getElementById("avgRating");
 const totalReviewsEl = document.getElementById("totalReviews");
 const reviewForm = document.getElementById("reviewForm");
 
-let ratings = [];
-
-db.collection("reviews").orderBy("created", "desc")
+// Load reviews
+db.collection("reviews")
+  .orderBy("created", "desc")
   .onSnapshot(snapshot => {
     reviewsList.innerHTML = "";
-    ratings = [];
+    let ratings = [];
 
     snapshot.forEach(doc => {
       const r = doc.data();
@@ -60,44 +60,40 @@ db.collection("reviews").orderBy("created", "desc")
 
       div.innerHTML = `
         <div class="review-header">
-          <div class="avatar">${r.name[0].toUpperCase()}</div>
+          <div class="avatar">${r.name.charAt(0).toUpperCase()}</div>
           <strong>${r.name}</strong>
         </div>
         <div class="stars">${"★".repeat(r.rating)}${"☆".repeat(5 - r.rating)}</div>
         <p>${r.comment}</p>
         <div class="review-actions">
           <button onclick="likeReview('${doc.id}')">❤️ ${r.likes || 0}</button>
-<button onclick="deleteReview('${doc.id}', '${r.secret}')">🗑</button>
         </div>
       `;
 
       reviewsList.appendChild(div);
     });
 
-    const avg = ratings.length
+    avgRatingEl.textContent = ratings.length
       ? (ratings.reduce((a,b)=>a+b)/ratings.length).toFixed(1)
       : "0.0";
 
-    avgRatingEl.textContent = avg;
     totalReviewsEl.textContent = ratings.length;
   });
 
+// Submit review
 reviewForm.addEventListener("submit", e => {
   e.preventDefault();
 
   const name = document.getElementById("username").value.trim();
-  const commentText = document.getElementById("comment").value.trim();
-  const ratingValue = Number(document.getElementById("rating").value);
+  const comment = document.getElementById("comment").value.trim();
+  const rating = Number(document.getElementById("rating").value);
 
-  if (!name || !commentText || !ratingValue) {
-    alert("Please fill all fields");
-    return;
-  }
+  if (!name || !comment || !rating) return;
 
   db.collection("reviews").add({
-    name: name,
-    comment: commentText,
-    rating: ratingValue,
+    name,
+    comment,
+    rating,
     likes: 0,
     created: firebase.firestore.FieldValue.serverTimestamp()
   });
@@ -105,11 +101,14 @@ reviewForm.addEventListener("submit", e => {
   reviewForm.reset();
 });
 
-
+// Like
 function likeReview(id) {
-  const ref = db.collection("reviews").doc(id);
-  ref.update({ likes: firebase.firestore.FieldValue.increment(1) });
+  db.collection("reviews").doc(id)
+    .update({
+      likes: firebase.firestore.FieldValue.increment(1)
+    });
 }
+
 
 const secret = Date.now().toString(36) + Math.random().toString(36).slice(2);
 localStorage.setItem("review_secret", secret);
